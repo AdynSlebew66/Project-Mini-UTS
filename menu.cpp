@@ -79,3 +79,40 @@ void insertionSortDescending(vector<int>& arr){
       arr[j+1] = key;
   }
 }
+
+void sortingData(){
+  system("cls");
+  
+  if(userData.empty()){
+      cout << "Data masih kosong. Silakan input data terlebih dahulu." << endl;
+  } else {
+      char pilihan;
+      cout << "Pilih metode sorting:" << endl;
+      cout << "A. Ascending (kecil ke besar)" << endl;
+      cout << "B. Descending (besar ke kecil)" << endl;
+      cout << "Pilihan Anda (A/B): ";
+      cin >> pilihan;
+      
+      vector<int> sortedData = userData; // Membuat salinan data
+      
+      if(pilihan == 'A' || pilihan == 'a'){
+          insertionSortAscending(sortedData);
+          cout << "\nHasil sorting secara Ascending:" << endl;
+      } else if(pilihan == 'B' || pilihan == 'b'){
+          insertionSortDescending(sortedData);
+          cout << "\nHasil sorting secara Descending:" << endl;
+      } else {
+          cout << "\nPilihan tidak valid. Kembali ke menu utama." << endl;
+          getch();
+          return;
+      }
+      
+      // Menampilkan hasil sorting
+      for(int i = 0; i < sortedData.size(); i++){
+          cout << "Data ke-" << (i+1) << ": " << sortedData[i] << endl;
+      }
+  }
+  
+  cout << "\nTekan apa saja untuk kembali ke menu...";
+  getch();
+}
