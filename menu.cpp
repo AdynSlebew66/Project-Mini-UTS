@@ -1,11 +1,12 @@
 #include <iostream>
 #include <conio.h>
+#include <vector>
 using namespace std;
 
 
 void dMenu(){
 system("cls");
-cout<<"Aplikasi Sorting Bubble"<<"\n";       
+cout<<"Aplikasi Sorting Bubblqe"<<"\n";       
 cout<<"1. Memasukkan Data"<<"\n";            
 cout<<"2. Menampilkan Data"<<"\n";            
 cout<<"3. Sorting"<<"\n";           
@@ -15,49 +16,38 @@ cout<<"Masukan angka :";
 
 }
 
-void mPertama(string pesan){
-system("cls");
-cout<<"Kawan Jua Penjahatnya "<<pesan;
-getch();
+void inputData(){
+  system("cls");
+  userData.clear(); // Menghapus data lama jika ada
+  
+  int jumlah;
+  cout << "Masukkan jumlah data yang ingin diinput: ";
+  cin >> jumlah;
+  
+  for(int i = 0; i < jumlah; i++){
+      int nilai;
+      cout << "Masukkan data ke-" << (i+1) << ": ";
+      cin >> nilai;
+      userData.push_back(nilai);
+  }
+  
+  cout << "\nData berhasil disimpan!" << endl;
+  cout << "Tekan apa saja untuk kembali ke menu...";
+  getch();
 }
 
-
-int main() {
-char pl;
-do
-{
-    dMenu();
-    pl=getch();
-  switch (pl)
-  {
-   case '1':
-    /* code */
-    mPertama("pertama");
-    break;
-   case '2':
-    mPertama("ke- dua");
-    /* code */ 
-    break;  
-   case '3':
-    mPertama("ke- tiga");
-    /* code */
-    break;  
-   case '4':
-    mPertama("ke- empat");
-    /* code */
-    break;  
-  case '5':
-    /* code */
-    break;
+void tampilkanData(){
+  system("cls");
   
-  default:
-    system("cls");
-    cout<<"Pilihan Tidak Tersedia";
-    getch();
-    break;
+  if(userData.empty()){
+      cout << "Data masih kosong. Silakan input data terlebih dahulu." << endl;
+  } else {
+      cout << "Berikut adalah data yang telah diinputkan:" << endl;
+      for(int i = 0; i < userData.size(); i++){
+          cout << "Data ke-" << (i+1) << ": " << userData[i] << endl;
+      }
   }
-
-
-} while (pl!='5');
-  return 0;
+  
+  cout << "\nTekan apa saja untuk kembali ke menu...";
+  getch();
 }
