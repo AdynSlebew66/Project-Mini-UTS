@@ -113,6 +113,47 @@ void sortingData(){
       }
   }
   
-  cout << "\nTekan apa saja untuk kembali ke menu...";
+  cout << "\nTekan apa aja deh kembali ke menu...";
   getch();
+}
+
+void Sepatah_Kata(){
+  system("cls");
+  cout << "Mudahan Nilai Bagus" << endl;
+  cout << "Tekan apa aja deh kembali ke menu...";
+  getch();
+}
+
+int main() {
+  char pl;
+  do {
+      dMenu();
+      pl = getch();
+      switch (pl) {
+          case '1':
+              inputData();
+              break;
+          case '2':
+              tampilkanData();
+              break;
+          case '3':
+              sortingData();
+              break;
+          case '4':
+              Sepatah_Kata();
+              break;
+          case '5':
+              system("cls");
+              cout << "Makasih Yaw telah menggunakan program ini!" << endl;
+              break;
+          default:
+              system("cls");
+              cout << "Pilihan Gak Tersedia" << endl;
+              cout << "Tekan apa aja deh kembali ke menu...";
+              getch();
+              break;
+      }
+  } while (pl != '5');
+  
+  return 0;
 }
