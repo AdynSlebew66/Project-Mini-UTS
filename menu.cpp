@@ -3,6 +3,8 @@
 #include <vector>
 using namespace std;
 
+// Deklarasi variabel global
+vector<int> userData;
 
 void dMenu(){
 system("cls");
